@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة إلى بابل | لعبة الرياضيات البابلية</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{--gold:#f4c76b;--ink:#171b2d;--panel:#242b43;--muted:#b9bfd2;--cream:#fff8e8;--teal:#58d6c5;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:'Cairo',sans-serif;color:var(--cream);background:radial-gradient(circle at 15% 15%,#3b3457 0,transparent 32%),radial-gradient(circle at 85% 80%,#254b54 0,transparent 30%),linear-gradient(135deg,#111526,#20243a 60%,#171b2d);display:flex;align-items:center;justify-content:center;padding:22px;overflow-x:hidden}
+body:before{content:"𒀭 𒂗 𒆠 𒀸";position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(70px,18vw,220px);letter-spacing:22px;color:#fff;opacity:.025;pointer-events:none}
+.app{width:min(900px,100%);position:relative}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-weight:900;color:var(--gold);letter-spacing:1px}.pill{border:1px solid #ffffff26;background:#ffffff0b;padding:7px 14px;border-radius:99px;color:var(--muted);font-size:13px}
+.card{background:linear-gradient(145deg,#29314bdf,#1c2238f2);border:1px solid #ffffff20;border-radius:28px;padding:clamp(22px,5vw,48px);box-shadow:0 25px 70px #0006;backdrop-filter:blur(10px)}
+.hero{text-align:center}.symbol{font-size:54px;margin:5px auto 12px;filter:drop-shadow(0 5px 15px #f4c76b44)}h1{font-size:clamp(30px,6vw,52px);line-height:1.25;margin:8px 0;color:var(--gold)}.subtitle{color:var(--muted);max-width:590px;margin:10px auto 25px;line-height:2}
+.section-title{font-size:19px;margin:25px 0 12px}.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mode{border:1px solid #ffffff24;background:#ffffff08;color:var(--cream);padding:17px 10px;border-radius:18px;cursor:pointer;font:inherit;transition:.2s}.mode:hover,.mode.active{border-color:var(--gold);background:#f4c76b18;transform:translateY(-2px)}.mode b{display:block;font-size:16px}.mode span{font-size:12px;color:var(--muted)}
+.btn{border:0;border-radius:15px;background:linear-gradient(135deg,#f8d88e,#e9ae48);color:#252033;padding:14px 28px;font:800 16px 'Cairo';cursor:pointer;box-shadow:0 8px 22px #e9ae4833;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}.btn.secondary{background:#ffffff12;color:var(--cream);border:1px solid #ffffff25;box-shadow:none}.start{margin-top:25px;min-width:210px}
+.hud{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap}.stat{background:#ffffff0d;border:1px solid #ffffff16;padding:8px 14px;border-radius:13px;font-size:14px;color:var(--muted)}.stat strong{color:var(--gold);margin-right:5px}.progress{height:8px;background:#ffffff16;border-radius:20px;overflow:hidden;margin:12px 0 25px}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .35s}
+.qtype{display:inline-block;color:var(--teal);background:#58d6c51a;border:1px solid #58d6c544;padding:5px 13px;border-radius:99px;font-size:13px;margin-bottom:15px}.question{font-size:clamp(21px,4vw,30px);line-height:1.8;margin:0 0 22px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{background:#ffffff0a;border:1px solid #ffffff20;border-radius:16px;padding:15px;color:var(--cream);font:600 15px 'Cairo';cursor:pointer;text-align:right;min-height:62px;transition:.18s}.answer:hover:not(:disabled){border-color:var(--gold);background:#f4c76b12}.answer.correct{border-color:var(--teal);background:#58d6c51b}.answer.wrong{border-color:var(--red);background:#ff77771a}.answer:disabled{cursor:default}
+.fillrow{display:flex;gap:10px}.fillrow input{flex:1;min-width:0;border:1px solid #ffffff2c;background:#ffffff0d;color:white;border-radius:15px;padding:14px 16px;font:600 16px 'Cairo';outline:none}.fillrow input:focus{border-color:var(--gold)}.feedback{margin-top:18px;padding:13px 16px;border-radius:14px;line-height:1.8;display:none}.feedback.show{display:block}.feedback.good{background:#58d6c51a;color:#9ff2e5;border:1px solid #58d6c544}.feedback.bad{background:#ff77771a;color:#ffb0b0;border:1px solid #ff777744}.actions{display:flex;justify-content:space-between;gap:12px;margin-top:20px}.hidden{display:none!important}.result{text-align:center}.bigscore{font-size:clamp(48px,10vw,78px);font-weight:900;color:var(--gold);line-height:1.3}.result p{color:var(--muted);line-height:2}.review{margin-top:20px;text-align:right}.review-item{padding:12px;border-bottom:1px solid #ffffff16;line-height:1.8}.review-item b{color:var(--gold)}.foot{text-align:center;color:#9299b0;font-size:12px;margin-top:15px}
+@media(max-width:600px){.modes{grid-template-columns:1fr}.answers{grid-template-columns:1fr}.top{align-items:flex-start}.fillrow{flex-direction:column}.actions .btn{flex:1;padding:12px 10px}.card{border-radius:22px}}
+</style>
+</head>
+<body>
+<main class="app">
+ <div class="top"><div class="brand">𒀭 BABYLON QUEST</div><div class="pill">لعبة الرياضيات البابلية</div></div>
+ <section class="card hero" id="home">
+  <div class="symbol">𒀭</div>
+  <h1>رحلة إلى بابل</h1>
+  <p class="subtitle">استعد لاكتشاف أسرار الرياضيات البابلية! أجب عن الأسئلة، اجمع النقاط، وتقدّم في التحدّي حتى تصبح خبيرًا في حضارة بلاد الرافدين.</p>
+  <div class="section-title">اختر طريقة اللعب</div>
+  <div class="modes">
+   <button class="mode active" data-mode="all"><b>🎮 مغامرة متنوعة</b><span>جميع أنواع الأسئلة</span></button>
+   <button class="mode" data-mode="mcq"><b>🧠 تحدّي الخيارات</b><span>اختيار من متعدد</span></button>
+   <button class="mode" data-mode="direct"><b>✍️ سؤال وجواب</b><span>أجب بنفسك</span></button>
+  </div>
+  <button class="btn start" id="start">ابدأ المغامرة ←</button>
+ </section>
+ <section class="card hidden" id="game">
+  <div class="hud"><div class="stat">⭐ النقاط <strong id="score">0</strong></div><div class="stat">السؤال <strong id="counter">1/10</strong></div><div class="stat">🔥 متتالية <strong id="streak">0</strong></div></div>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="qtype" id="type"></div>
+  <h2 class="question" id="question"></h2>
+  <div id="choices" class="answers"></div>
+  <div id="fill" class="fillrow hidden"><input id="typed" autocomplete="off" placeholder="اكتب إجابتك هنا..."><button class="btn" id="check">تحقّق</button></div>
+  <div class="feedback" id="feedback"></div>
+  <div class="actions"><button class="btn secondary" id="quit">إنهاء اللعبة</button><button class="btn hidden" id="next">السؤال التالي ←</button></div>
+ </section>
+ <section class="card result hidden" id="result">
+  <div class="symbol">🏆</div><h1>انتهت الرحلة!</h1><div class="bigscore" id="finalScore">0</div><div>نقطة من <span id="maxScore">100</span></div>
+  <p id="message"></p><button class="btn" id="again">العب مرة أخرى</button>
+  <div class="review" id="review"></div>
+ </section>
+ <div class="foot">تعلّم • اكتشف • تحدَّ نفسك</div>
+</main>
+<script>
+const bank = [
+ {kind:'direct',label:'سؤال مباشر',q:'ما هو النظام العددي الذي يميّز الرياضيات البابلية؟',a:'النظام العددي الستيني الذي يعتمد على الأساس 60.',keys:['الستيني','60','ستين']},
+ {kind:'direct',label:'سؤال مباشر',q:'كيف عبّر البابليون عن الخانة الفارغة في الأعداد قبل ابتكار الصفر؟',a:'كانوا يتركون فراغًا للدلالة على خانة فارغة.',keys:['فراغ','يتركون فراغا','ترك فراغ']},
+ {kind:'direct',label:'سؤال مباشر',q:'ما هو الرمز الذي ابتكره البابليون لاحقًا للدلالة على الصفر أو خانة فارغة؟',a:'رمز على شكل زاويتين مائلتين.',keys:['زاويتين','زاويتان','زاويتين مائلتين']},
+ {kind:'direct',label:'سؤال مباشر',q:'ما الميزة الرئيسية للعدد 60 التي سهّلت عمليات القسمة في النظام البابلي؟',a:'كثرة قواسمه: 1، 2، 3، 4، 5، 6، 10، 12، 15، 20، 30، 60.',keys:['قواسم','كثرة القواسم','كثرة قواسمه']},
+ {kind:'mcq',label:'اختيار من متعدد',q:'كيف كان البابليون يتعاملون مع عمليات القسمة بشكل عام؟',opts:['باستخدام خوارزمية القسمة الطويلة','بتحويلها إلى عملية ضرب في المقلوب','عن طريق الطرح المتكرر','بتغيير أساس النظام إلى عشري'],correct:1,explain:'كانوا يحوّلون القسمة إلى ضرب في المقلوب.'},
+ {kind:'mcq',label:'اختيار من متعدد',q:'عندما واجه البابليون عددًا ليس له مقلوب منتهٍ في النظام الستيني (مثل 1/13)، ماذا كانوا يفعلون؟',opts:['يستخدمون منهجيات تقريبية للحصول على قيمة مقربة','يعتبرون المسألة غير قابلة للحل','يغيّرون أساس النظام إلى عشري','يستبدلون العدد دائمًا بعدد صحيح'],correct:0,explain:'وفق الاختيار الوارد في الملف: يستخدمون منهجيات تقريبية للحصول على قيمة مقربة.'},
+ {kind:'mcq',label:'اختيار من متعدد',q:'عند إجراء الطرح بالاستلاف في النظام البابلي، كم كانت قيمة العدد المستلف من الخانة الأعلى؟',opts:['10','100','60','12'],correct:2,explain:'قيمة الخانة الأعلى في النظام الستيني هي 60.'},
+ {kind:'fill',label:'أكمل الجملة',q:'اعتمد البابليون على رمزين بسيطين لتمثيل الأعداد: رمز المسمار العمودي للعدد 1، ورمز الزاوية المفتوحة للعدد _____.',a:'10',keys:['10','عشرة']},
+ {kind:'fill',label:'أكمل الجملة',q:'لحل مسائل القسمة، حوّل البابليون العملية إلى الضرب في _____.',a:'المقلوب',keys:['المقلوب']},
+ {kind:'fill',label:'أكمل الجملة',q:'كيف انتقلت المعارف الرياضية البابلية عبر _____ إلى الحضارات اللاحقة؟',a:'النشاط التجاري والثقافي المزدهر في بلاد الرافدين.',keys:['النشاط التجاري','التجاري والثقافي','بلاد الرافدين']}
+];
+let questions=[],index=0,score=0,streak=0,answered=false,history=[];
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.mode').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));
+function norm(s){return s.toLowerCase().replace(/[أإآ]/g,'ا').replace(/[ًٌٍَُِّْـ]/g,'').replace(/[.,،؛:!?؟]/g,'').trim()}
+function start(){let mode=document.querySelector('.mode.active').dataset.mode;questions=bank.filter(q=>mode==='all'||(mode==='mcq'?q.kind==='mcq':q.kind==='direct'||q.kind==='fill'));questions=[...questions].sort(()=>Math.random()-.5);index=0;score=0;streak=0;history=[];$('home').classList.add('hidden');$('result').classList.add('hidden');$('game').classList.remove('hidden');render()}
+function render(){answered=false;let q=questions[index];$('score').textContent=score;$('streak').textContent=streak;$('counter').textContent=(index+1)+'/'+questions.length;$('bar').style.width=(index/questions.length*100)+'%';$('type').textContent=q.label;$('question').textContent=q.q;$('feedback').className='feedback';$('feedback').textContent='';$('next').classList.add('hidden');$('choices').innerHTML='';$('fill').classList.add('hidden');if(q.kind==='mcq'){q.opts.forEach((o,i)=>{let b=document.createElement('button');b.className='answer';b.textContent=['أ','ب','ج','د'][i]+' — '+o;b.onclick=()=>choose(i);$('choices').appendChild(b)})}else{$('fill').classList.remove('hidden');$('typed').value='';$('typed').disabled=false;$('check').disabled=false;$('typed').focus()}}
+function showFeedback(ok,correctText,detail){let f=$('feedback');f.className='feedback show '+(ok?'good':'bad');f.textContent=(ok?'إجابة صحيحة! أحسنت 🎉 ':'ليست الإجابة الصحيحة. ') + detail; if(!ok) f.textContent+=' الإجابة: '+correctText}
+function choose(i){if(answered)return;let q=questions[index],ok=i===q.correct;answered=true;[...$('choices').children].forEach((b,j)=>{b.disabled=true;if(j===q.correct)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});if(ok){score+=10;streak++}else streak=0;history.push({q:q.q,ok,answer:q.opts[q.correct]});$('score').textContent=score;$('streak').textContent=streak;showFeedback(ok,q.opts[q.correct],q.explain);$('next').classList.remove('hidden')}
+function check(){if(answered)return;let q=questions[index],v=norm($('typed').value);if(!v){$('typed').focus();return}let ok=q.keys.some(k=>v.includes(norm(k))||norm(k).includes(v));answered=true;$('typed').disabled=true;$('check').disabled=true;if(ok){score+=10;streak++}else streak=0;history.push({q:q.q,ok,answer:q.a});$('score').textContent=score;$('streak').textContent=streak;showFeedback(ok,q.a,ok?'إجابة موفقة.': 'راجع الإجابة الصحيحة المعروضة.');$('next').classList.remove('hidden')}
+function next(){if(index<questions.length-1){index++;render()}else finish()}
+function finish(){$('game').classList.add('hidden');$('result').classList.remove('hidden');$('bar').style.width='100%';$('finalScore').textContent=score;$('maxScore').textContent=questions.length*10;let pct=score/(questions.length*10);$('message').textContent=pct===1?'مذهل! أتقنت التحدي البابلي بالكامل!':pct>=.7?'أداء رائع! لديك معرفة جيدة بالرياضيات البابلية.':pct>=.4?'عمل جيد! واصل التعلّم وستصبح خبيرًا.':'لا تستسلم! أعد المحاولة واكتشف المزيد عن بابل.';$('review').innerHTML='<h3>مراجعة الإجابات</h3>'+history.map((h,i)=>`<div class="review-item">${h.ok?'✅':'❌'} <b>${i+1}.</b> ${h.q}<br><span style="color:#b9bfd2">الإجابة: ${h.answer}</span></div>`).join('')}
+$('start').onclick=start;$('next').onclick=next;$('check').onclick=check;$('typed').addEventListener('keydown',e=>{if(e.key==='Enter')check()});$('quit').onclick=finish;$('again').onclick=()=>{$('result').classList.add('hidden');$('home').classList.remove('hidden')};
+</script>
+</body></html>
